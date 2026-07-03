@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "商品采集助手 V1.0.3.7",
+  "version": "1.0.3.7",
+  "description": "SKU矩阵规格值拆分与长规格修正版：避免多个规格值合成一个，保留长规格文案，价格/库存仍可编辑。",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "downloads",
+    "tabs"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "action": {
+    "default_title": "商品采集助手",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.1688.com/*",
+        "*://*.taobao.com/*",
+        "*://*.tmall.com/*",
+        "*://*.jd.com/*",
+        "*://*.yangkeduo.com/*",
+        "*://*.pinduoduo.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
